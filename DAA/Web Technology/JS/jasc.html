@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="formm.css" />
+    <title>Form Validation</title>
+  </head>
+  <body>
+    <div class="container">
+      <form class="fm1">
+        <div class="input-group">
+          <label for="name">Enter Name:</label>
+          <input id="name" type="text"  /><br /><br />
+        </div>
+        <div class="input-group">
+          <label for="email">Enter Email:</label>
+          <input id="email" type="text" /><br /><br />
+        </div>
+        <div class="input-group">
+          <label for="pass">Enter Password:</label>
+          <input id="pass" type="password" /><br /><br />
+        </div>
+        <div class="input-group">
+          <label for="cpass">Confirm Password:</label>
+          <input id="cpass" type="password" /><br /><br />
+        </div>
+        <button class="login-btn" id="sub" type="submit" onclick="validate()">Submit</button>
+      </form>
+    </div>
+    <script>
+      function validate() {
+        const name = document.getElementById("name");
+        const email = document.getElementById("email");
+        const pass = document.getElementById("pass");
+        const cpass = document.getElementById("cpass");
+
+        const nameValue = name.value;
+        const emailValue = email.value;
+        const passValue = pass.value;
+        const cpassValue = cpass.value;
+
+        // const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        // const passwordRegex = /^(?=.*[0-9])(?=.*[A-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$/;
+
+        if (nameValue.length < 5) {
+          alert("Name must be at least 5 characters long.");
+        } else if (!emailValue.includes("@") || !emailValue.includes(".com")) {
+          alert("Email is invalid.");
+        } else if (passValue === "" || passValue.length < 6) {
+          alert(
+            "Password must be 8-20 characters long" 
+          );
+        } else if (passValue !== cpassValue) {
+          alert("Passwords do not match.");
+        } else {
+          alert("Login successful.");
+        }
+      }
+    </script>
+  </body>
+</html>

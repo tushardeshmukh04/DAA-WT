@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Length Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .output {
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Word Length Calculator</h2>
+        <input type="text" id="wordInput" placeholder="Type a word...">
+        <p class="output" id="wordLength">word length: 0</p>
+    </div>
+
+    <script>
+        const wordInput = document.getElementById('wordInput');
+        const wordLength = document.getElementById('wordLength');
+        wordInput.addEventListener('input', function () {
+            const length = wordInput.value.length;
+            wordLength.innerHTML = length;
+        });
+    </script>
+</body>
+</html>

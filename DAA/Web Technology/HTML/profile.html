@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Person Profile</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .profile-card {
+            max-width: 600px;
+            margin: auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .profile-header {
+            background: linear-gradient(90deg, #007bff, #6610f2);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .profile-header h2 {
+            margin: 0;
+        }
+        .profile-image {
+            text-align: center;
+            margin-top: -50px;
+        }
+        .profile-image img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 5px solid white;
+        }
+        .profile-details {
+            padding: 20px;
+            background-color: white;
+        }
+        .profile-details ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .profile-details li {
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-card mt-5">
+        <div class="profile-header">
+            <h2 id="person-name">John Doe</h2>
+            <p id="person-role">Software Engineer</p>
+        </div>
+        <div class="profile-image">
+            <img id="person-image" src="https://via.placeholder.com/100" alt="Profile Picture">
+        </div>
+        <div class="profile-details">
+            <ul>
+                <li><strong>Email:</strong> <span id="person-email">johndoe@example.com</span></li>
+                <li><strong>Phone:</strong> <span id="person-phone">+1-234-567-890</span></li>
+                <li><strong>Address:</strong> <span id="person-address">123 Main St, Anytown, USA</span></li>
+                <li><strong>Hobbies:</strong> <span id="person-hobbies">Reading, Traveling, Coding</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- JavaScript for interactivity -->
+    <script>
+        // Example of dynamically updating the profile details
+        const profileData = {
+            name: "Jane Smith",
+            role: "Data Scientist",
+            image: "https://via.placeholder.com/100",
+            email: "janesmith@example.com",
+            phone: "+1-987-654-321",
+            address: "456 Another St, Anytown, USA",
+            hobbies: "Photography, Hiking, AI Research"
+        };
+
+        document.getElementById('person-name').textContent = profileData.name;
+        document.getElementById('person-role').textContent = profileData.role;
+        document.getElementById('person-image').src = profileData.image;
+        document.getElementById('person-email').textContent = profileData.email;
+        document.getElementById('person-phone').textContent = profileData.phone;
+        document.getElementById('person-address').textContent = profileData.address;
+        document.getElementById('person-hobbies').textContent = profileData.hobbies;
+    </script>
+
+    <!-- Bootstrap JS (optional) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

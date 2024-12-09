@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+
+    <style>
+        .container{
+            margin: auto;
+            width: 500px;
+            max-width: 90%;
+        }
+        .table {
+            width: 100%; /* Makes the table take up full width */
+            border-collapse: collapse; /* Combines table borders */
+            margin: 20px 0; /* Adds spacing above and below the table */
+            font-size: 16px; /* Adjust font size */
+            text-align: left; /* Align text to the left */
+        }
+        .table th,
+        .table td {
+            border: 1px solid #666; /* Border for table cells */
+            padding: 12px; /* Adds spacing inside cells */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Info Table</h1>
+    <table class="table">
+        <thead>
+            <tr>
+            <th>srNo.</th>
+            <th>item</th>
+            <Th>rate</Th>
+        </tr>
+        </thead>
+        
+        <tr>
+            <td>001</td>
+            <td>Mobile</td>
+            <td rowspan="2">8000</td>
+
+        </tr>
+        <tr>
+            <td>002</td>
+            <td>Charger</td>
+        </tr>
+        <tr>
+            <td>003</td>
+            <td>Laptop</td>
+            <td>20000</td>
+        </tr>
+        <tr>
+            <td colspan="2"> Grand Total</td>
+            <td>28000</td>
+
+        </tr>
+
+    </table>
+    </div>
+    
+</body>
+</html>

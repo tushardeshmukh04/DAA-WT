@@ -1,0 +1,116 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    color: #333333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 35px;
+}
+
+h2 {
+    color: #310303;
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Input and Button Styles */
+input[type="text"] {
+    padding: 10px;
+    width: 280px;
+    border: 1px solid #0f0d0d;
+    border-radius: 4px;
+    margin-right: 10px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus {
+    border-color: #ff0000;
+    outline: none;
+}
+
+button {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+button:hover {
+    transform: scale(1.02);
+}
+
+button:focus {
+    outline: none;
+}
+
+button[ng-click="addnewtask()"] {
+    background-color: #28a745;
+    color: white;
+}
+
+button[ng-click="editTask(obj)"] {
+    background-color: #190703;
+    color: white;
+}
+
+button[ng-click="deleteTask($index)"] {
+    background-color: #dc3545;
+    color: white;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 20px;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 14px;
+    text-align: left;
+    font-size: 16px;
+}
+
+th {
+    background-color: #0044ff;
+    color: white;
+    font-weight: bold;
+}
+
+td {
+    border-bottom: 1px solid #eee;
+}
+
+tr:hover td {
+    background-color: #f9f9f9;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* Inline Edit Input Style */
+input[type="text"][ng-model="obj.taskname"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+}
+
+/* Smooth Transitions */
+input, button {
+    transition: all 0.2s ease-in-out;
+}

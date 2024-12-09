@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form action="./submit" method="post">
+        <h2>Registration Form</h2>
+        <label for="username">username:</label>
+        <input type="text" id="username" name="Username" required> <br>
+        <label for="Password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
+        <label for="address">address:</label>
+        <textarea name="address" id="address"></textarea><br>
+        <label for="DOB">DOB:</label>
+        <input type="date" id="DOB" name="DOB" required><br>
+        <label for="age">age:</label>
+        <input type="number" name="ade" min="1" max="100"><br>
+        <label for="gender">gender:</label>
+        <input type="radio" name="gender" value="male" required>male
+        <input type="radio" name="gender" value="Female" required>Female <br>
+        <label for="Courses">Courses</label><br>
+        <input type="checkbox" name="course" value="Toc">Toc <br>
+        <input type="checkbox" name="course" id="Daa">DAA <br>
+        <input type="checkbox" name="course" id="CC">CC <br>
+        <input type="submit" name="submit" value="submit">
+        &nbsp; &nbsp; &nbsp;
+        <input type="reset" name="reset" value="reset">
+    </form>
+</body>
+</html>
