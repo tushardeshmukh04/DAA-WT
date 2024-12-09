@@ -1,0 +1,106 @@
+package com.sres;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.sql.Connection; 
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+/**
+ * Servlet implementation class Sample
+ */
+@WebServlet("/Sample")
+public class Sample extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public Sample() {
+        super();
+    }
+
+	/**
+	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//		response.setHeader("Access-Control-Allow-Origin", "*");
+		
+		try {
+		int x=Integer.parseInt(request.getParameter("ch"));
+		
+			
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/tesst", "root", "");
+		
+			if (con != null) {
+				if(x==1) {
+				int id=Integer.parseInt(request.getParameter("ID"));
+				String name=request.getParameter("Name");
+				int salary=Integer.parseInt(request.getParameter("salary"));
+				PreparedStatement ps = con.prepareStatement("insert into emp(ID,Name,salary) values(?,?,?)");
+				ps.setInt(1, id);
+				ps.setString(2, name);
+				ps.setInt(3, salary);
+				ps.executeUpdate();
+				}
+			 
+
+			if (x==2 ) {
+				int choice=Integer.parseInt(request.getParameter("choice"));
+				if(choice==1) {
+					int salary=Integer.parseInt(request.getParameter("salary"));
+					int id=Integer.parseInt(request.getParameter("ID"));
+					PreparedStatement ps = con.prepareStatement("update emp set salary=? where ID = ?");
+					ps.setInt(1, salary );
+					ps.setInt(2,id);
+					ps.executeUpdate();
+				}
+				if(choice==2) {
+					String name=request.getParameter("Name");
+					int id=Integer.parseInt(request.getParameter("ID"));
+					PreparedStatement ps = con.prepareStatement("update emp set Name=? where ID = ?");
+					ps.setString(1, name);
+					ps.setInt(2,id);
+					ps.executeUpdate();
+				}
+				
+				
+			}
+			if (x==3 ) {
+				int id=Integer.parseInt(request.getParameter("ID"));
+				PreparedStatement ps = con.prepareStatement("delete from emp Where ID=?");
+				ps.setInt(1,id );
+				ps.executeUpdate();
+			}
+			if (x==4 ) {
+				PreparedStatement ps = con.prepareStatement("select * from emp");
+				
+				ResultSet rs= ps.executeQuery();
+				while(rs.next()) {
+					int ID=rs.getInt("ID");
+					System.out.print(ID+" ");
+					String Name=rs.getString("Name");
+					System.out.print(Name+" ");
+					int salary=rs.getInt("salary");
+					System.out.println(salary);
+				}
+			}
+			}
+			else {
+				System.out.println("Connection not established");
+			}
+			
+		
+			con.close();
+		} catch (Exception e) {
+			System.out.println("General Error: " + e.getMessage());
+		}
+	}
+}
